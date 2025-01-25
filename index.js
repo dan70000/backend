@@ -6,6 +6,7 @@ const { Pool } = require("pg");
 require("dotenv").config(); // Load environment variables from .env file
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -98,6 +99,11 @@ app.put("/cases/:id", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+});
+
+// Start Server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
 
 // Export the Express App for Vercel
