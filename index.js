@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // PostgreSQL Connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL, // Use an environment variable for security
-  ssl: { rejectUnauthorized: true }, // Required for production
+  ssl: { rejectUnauthorized: false }, // Required for production
 });
 
 // Multer for file uploads
